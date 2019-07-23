@@ -9,8 +9,7 @@
     "@aragon/apps-vault": "4.1.0",
     "@aragon/apps-voting": "2.1.0",
     "@aragon/os": "^4.2.1",
-    "openzeppelin-solidity": "2.0.1",
-    "@babel/plugin-proposal-object-rest-spread": "^7.3.4"
+    "openzeppelin-solidity": "2.0.1"
   },
   "devDependencies": {
     "@aragon/cli": "^5.9.7",
@@ -41,7 +40,8 @@
     "dappeteer": "=0.6.0",
     "@babel/polyfill": "^7.2.5",
     "execa": "^1.0.0",
-    "ps-tree": "^1.2.0"
+    "ps-tree": "^1.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.4"
   },
   "scripts": {
     "prepublishOnly": "aragon contracts compile",
@@ -52,7 +52,7 @@
     "prepare": "cd app && npm install && cd ..",
     "start:app": "cd app && npm start && cd ..",
     "test": "cross-env TRUFFLE_TEST=true npm run ganache-cli:test",
-    "test:e2e": "percy exec -- ava",
+    "test:e2e": "ava",
     "compile": "aragon contracts compile",
     "build": "cd app && npm run build && cd ..",
     "publish:patch": "aragon apm publish patch",
