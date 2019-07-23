@@ -28,7 +28,7 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: redemptions-dependencies-{{ checksum "package.json" }}
+          key: redemptions-dependencies1-{{ checksum "package.json" }}
 
       - run: sudo apt install rsync
 
