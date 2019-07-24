@@ -34,7 +34,7 @@
     "solidity-coverage": "^0.6.2",
     "truffle": "^5.0.1",
     "ava": "^2.2.0",
-    "puppeteer-core": "=1.15.0",
+    "puppeteer-core": "=1.18.0",
     "dappeteer": "=0.6.0",
     "@babel/polyfill": "^7.2.5",
     "execa": "^1.0.0",

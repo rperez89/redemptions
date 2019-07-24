@@ -58,14 +58,16 @@ test.serial('should display initial screen ', async t => {
   const redemptionsText = 'Redemptions'
   let addTokenText
   const url = `http://localhost:3000/#/${t.context.daoAddress}`
+  console.log(url)
   await t.context.page.goto(url)
+  console.log(1)
   await t.context.page.reload()
   await t.context.page.bringToFront()
-  await t.context.page.waitForFunction(
-    redemptionsText => document.querySelector('body').innerText.includes(redemptionsText),
-    {},
-    redemptionsText
-  )
+  // await t.context.page.waitForFunction(
+  //   redemptionsText => document.querySelector('body').innerText.includes(redemptionsText),
+  //   {},
+  //   redemptionsText
+  // )
   const RedemptionsAppSpan = await t.context.page.$x("//span[contains(text(), 'Redemptions')]")
   if (RedemptionsAppSpan.length > 0) {
     await RedemptionsAppSpan[0].click()
