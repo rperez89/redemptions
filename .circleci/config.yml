@@ -27,6 +27,14 @@ jobs:
           name: Install dependencies
           command: npm install
 
+      - run:
+          name: getChromeVersion
+          command: google-chrome --version
+
+      run:
+        name: getChromePath
+        command: whereis google-chrome
+
       - save_cache:
           paths:
             - node_modules
