@@ -31,9 +31,9 @@ jobs:
           name: getChromeVersion
           command: google-chrome --version
 
-      run:
-        name: getChromePath
-        command: whereis google-chrome
+      - run:
+          name: getChromePath
+          command: whereis google-chrome
 
       - save_cache:
           paths:
