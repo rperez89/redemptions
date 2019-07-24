@@ -1,7 +1,7 @@
 import test from 'ava'
 import { startBackgroundProcess } from './util'
 const dappeteer = require('dappeteer')
-import puppeteer from 'puppeteer'
+import puppeteer from 'puppeteer-core'
 // const { percySnapshot } = require('@percy/puppeteer')
 
 test.before(async t => {
