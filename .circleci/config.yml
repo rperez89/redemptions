@@ -51,13 +51,12 @@ jobs:
             - node_modules
             - app/node_modules
           key: *node_modules_key
-      
-          - run: sudo apt install rsync
+
+      - run: sudo apt install rsync
 
       - run:
           name: Visual Tests
           command: npm run test:e2e
-      
 
   coverage:
     docker:
