@@ -9,7 +9,7 @@ test.before(async t => {
   try {
     browser = await dappeteer.launch(puppeteer, {
       headless: false,
-      executablePath: '/opt/google/chrome/google-chrome',
+      executablePath: 'google-chrome-stable',
       defaultViewport: null,
       args: ['--start-maximized', '--no-sandbox', '--disable-setuid-sandbox', '--disable-web-security'],
     })
