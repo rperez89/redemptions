@@ -5,11 +5,17 @@ import puppeteer from 'puppeteer'
 // const { percySnapshot } = require('@percy/puppeteer')
 
 test.before(async t => {
-  const browser = await dappeteer.launch(puppeteer, {
-    headless: false,
-    defaultViewport: null,
-    args: ['--start-maximized', '--no-sandbox', '--disable-setuid-sandbox', '--disable-web-security'],
-  })
+  let browser
+  try {
+    browser = await dappeteer.launch(puppeteer, {
+      headless: false,
+      executablePath: '/usr/bin/google-chrome',
+      defaultViewport: null,
+      args: ['--start-maximized', '--no-sandbox', '--disable-setuid-sandbox', '--disable-web-security'],
+    })
+  } catch (error) {
+    throw new Error(error)
+  }
   const page = await browser.newPage()
   const metamask = await dappeteer.getMetamask(browser)
   const { stdout, exit } = await startBackgroundProcess({
