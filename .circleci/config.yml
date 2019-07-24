@@ -37,10 +37,6 @@ jobs:
           command: npm run coverage
 
       - run:
-          name: Report Coverage
-          Command: npm run coveralls
-
-      - run:
           name: Visual Tests
           command: npm run test:e2e
 
