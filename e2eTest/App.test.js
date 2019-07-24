@@ -2,11 +2,12 @@ import test from 'ava'
 import { startBackgroundProcess } from './util'
 const dappeteer = require('dappeteer')
 import puppeteer from 'puppeteer'
-// const { percySnapshot } = require('@percy/puppeteer')
+const { percySnapshot } = require('@percy/puppeteer')
 
 test.before(async t => {
   let browser
   try {
+    browser = await dappeteer.launch(puppeteer)
     browser = await dappeteer.launch(puppeteer, {
       headless: false,
       defaultViewport: null,
@@ -81,7 +82,7 @@ test.serial('should display initial screen ', async t => {
     const button = addTokenButton[0]
     addTokenText = await frame.evaluate(button => button.textContent, button)
   }
-  // await percySnapshot(frame, 'Initial Screen')
+  await percySnapshot(frame, 'Initial Screen')
   t.is(addTokenText, 'Add token')
 })
 
@@ -100,7 +101,7 @@ test.serial('should display add token side panel and create transaction', async 
       AddTokenSidePanelButton
     )
     //Percy
-    // await percySnapshot(frame, 'Side Panel')
+    await percySnapshot(frame, 'Side Panel')
     await AddTokenSidePanelButton.click()
     await t.context.page.waitFor(4000)
   } else {
@@ -183,7 +184,7 @@ test.serial('should add the token ', async t => {
     throw new Error('Redemptions app not found')
   }
 
-  // await percySnapshot(frame, 'Token List')
+  await percySnapshot(frame, 'Token List')
   t.is(RedemptionsListTitle, 'Tokens for redemption')
   t.is(ETHTitle, 'ETH')
   await t.context.exit()
