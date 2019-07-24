@@ -5,7 +5,7 @@
 version: 2.1
 
 references:
-  node_modules_key: &node_modules_key redemptions-dependencies-v4-{{ checksum "package.json" }}-{{ checksum "app/package.json" }}
+  node_modules_key: &node_modules_key redemptions-dependencies-v5-{{ checksum "package.json" }}-{{ checksum "app/package.json" }}
 
   restore_node_modules: &restore_node_modules
     restore_cache:
@@ -44,10 +44,6 @@ jobs:
             rm google-chrome.deb
 
       - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm i
-
-      - run:
-          name: Install dependencies
-          command: npm install
 
       - run:
           name: getChromeVersion
