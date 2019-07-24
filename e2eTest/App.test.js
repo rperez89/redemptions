@@ -7,7 +7,6 @@ const { percySnapshot } = require('@percy/puppeteer')
 test.before(async t => {
   let browser
   try {
-    browser = await dappeteer.launch(puppeteer)
     browser = await dappeteer.launch(puppeteer, {
       headless: false,
       defaultViewport: null,
